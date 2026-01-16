@@ -150,46 +150,65 @@ export default function HomePage() {
             </section>
 
             {/* ==================== PROGRESS TRACKER ==================== */}
-            <section className="py-20 px-4 md:px-6 max-w-6xl mx-auto">
-                <div className="bg-primary border-4 border-black rounded-[40px] p-8 md:p-16 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+            <section className="py-12 md:py-20 px-4 md:px-6 max-w-6xl mx-auto">
+                <div className="bg-primary border-3 md:border-4 border-black rounded-[24px] md:rounded-[40px] p-6 md:p-12 lg:p-16 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] md:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] relative overflow-hidden">
                     {/* Background Decoration */}
-                    <div className="absolute -bottom-10 -right-10 p-4 rotate-12 opacity-10">
-                        <Heart className="w-64 h-64 fill-white text-white" />
+                    <div className="absolute -bottom-10 -right-10 rotate-12 opacity-10 pointer-events-none">
+                        <Heart className="w-40 h-40 md:w-64 md:h-64 fill-white text-white" />
                     </div>
 
-                    <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center text-center lg:text-left">
+                    <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
                         {/* Left Content */}
-                        <div className="text-white space-y-8">
-                            <h2 className="text-5xl md:text-7xl font-black leading-none uppercase">
+                        <div className="text-white space-y-4 md:space-y-8 text-center lg:text-left">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black leading-none uppercase">
                                 Fundraising <br/> Goal
                             </h2>
-                            <p className="text-xl md:text-2xl font-bold opacity-90">
+                            <p className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold opacity-90 max-w-md mx-auto lg:mx-0">
                                 Every game set you buy provides a child with more crayons and drawing paper.
                             </p>
-                            <div className="flex flex-wrap justify-center lg:justify-start gap-8 md:gap-16">
-                                <div>
-                                    <div className="text-5xl md:text-6xl font-black">{stats.sold}</div>
-                                    <div className="text-sm uppercase font-black opacity-80 tracking-widest">Sets Sold</div>
+
+                            {/* Stats */}
+                            <div className="flex flex-wrap justify-center lg:justify-start gap-6 md:gap-8 lg:gap-16 pt-2 md:pt-4">
+                                <div className="text-center lg:text-left">
+                                    <div className="text-4xl sm:text-5xl md:text-6xl font-black">{stats.sold}</div>
+                                    <div className="text-xs md:text-sm uppercase font-black opacity-80 tracking-widest">Sets Sold</div>
+                                </div>
+                                {/* Optional: Add more stats */}
+                                <div className="text-center lg:text-left">
+                                    <div className="text-4xl sm:text-5xl md:text-6xl font-black">{stats.raised / 10}</div>
+                                    <div className="text-xs md:text-sm uppercase font-black opacity-80 tracking-widest">Kids Helped</div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Right - Progress Card */}
-                        <div className="bg-white border-4 border-black p-8 md:p-12 rounded-[32px] space-y-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)]">
-                            <div className="flex justify-between items-end">
-                                <span className="font-black text-3xl md:text-4xl">${stats.raised}</span>
-                                <span className="font-black text-slate-400">GOAL: ${stats.goal}</span>
+                        <div className="bg-white border-3 md:border-4 border-black p-5 sm:p-6 md:p-8 lg:p-12 rounded-[20px] md:rounded-[32px] space-y-4 sm:space-y-6 md:space-y-8 shadow-[4px_4px_0px_0px_rgba(0,0,0,0.2)] md:shadow-[8px_8px_0px_0px_rgba(0,0,0,0.2)]">
+                            {/* Amount Display */}
+                            <div className="flex flex-col sm:flex-row justify-between items-center sm:items-end gap-2 sm:gap-0">
+                                <span className="font-black text-2xl sm:text-3xl md:text-4xl">${stats.raised}</span>
+                                <span className="font-black text-slate-400 text-sm md:text-base">GOAL: ${stats.goal}</span>
                             </div>
-                            <div className="w-full bg-slate-100 border-4 border-black h-14 md:h-16 rounded-[20px] overflow-hidden relative">
+
+                            {/* Progress Bar */}
+                            <div className="w-full bg-slate-100 border-3 md:border-4 border-black h-10 sm:h-12 md:h-14 lg:h-16 rounded-[12px] md:rounded-[20px] overflow-hidden relative">
                                 <div
-                                    className="bg-yellow-400 h-full border-r-4 border-black transition-all duration-1000 ease-out relative"
+                                    className="bg-yellow-400 h-full border-r-3 md:border-r-4 border-black transition-all duration-1000 ease-out relative"
                                     style={{ width: `${(stats.raised / stats.goal) * 100}%` }}
                                 >
                                     <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/30 to-transparent" />
                                 </div>
                             </div>
-                            <BrutalButton href="/shop" variant="secondary" className="w-full py-5 text-xl">
-                                Donate Now <ArrowRight className="ml-2" />
+
+                            {/* Percentage Text */}
+                            <div className="text-center">
+                    <span className="text-sm md:text-base font-bold text-slate-500">
+                        {Math.round((stats.raised / stats.goal) * 100)}% of our goal reached!
+                    </span>
+                            </div>
+
+                            {/* CTA Button */}
+                            <BrutalButton href="/shop" variant="secondary" className="w-full py-3 sm:py-4 md:py-5 text-base sm:text-lg md:text-xl">
+                                Donate Now <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                             </BrutalButton>
                         </div>
                     </div>
