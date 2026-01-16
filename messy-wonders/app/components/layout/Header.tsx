@@ -88,7 +88,7 @@ export default function Header() {
 
             {/* NAV BAR */}
             <nav className={`fixed w-full top-0 z-50 px-4 md:px-8 py-4 transition-all duration-300 ${scrolled && !isMenuOpen ? 'bg-white/95 backdrop-blur-sm border-b-4 border-black' : 'bg-transparent'}`}>
-                <div className="bg-white max-w-7xl mx-auto flex justify-between items-center">
+                <div className="max-w-7xl mx-auto flex justify-between items-center">
                     {/* Logo */}
                     <Link
                         href="/"
