@@ -90,19 +90,6 @@ export default function HomePage() {
                             Limited Edition
                         </BrutalButton>
                     </div>
-                    <div className="flex items-center justify-center lg:justify-start gap-3 text-sm md:text-base font-black text-slate-500">
-                        <div className="flex -space-x-2">
-                            {[1, 2, 3].map(i => (
-                                <div
-                                    key={i}
-                                    className="w-8 h-8 rounded-full border-2 border-black bg-slate-200 flex items-center justify-center text-[10px]"
-                                >
-                                    U{i}
-                                </div>
-                            ))}
-                        </div>
-                        <span>Join 100+ parents supporting us</span>
-                    </div>
                 </div>
 
                 <div className="relative mt-12 lg:mt-0">
