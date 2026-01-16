@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "messy-wonders/node_modules/.bin/next dev",
+    "build": "messy-wonders/node_modules/.bin/next build",
+    "start": "messy-wonders/node_modules/.bin/next start",
+    "lint": "messy-wonders/node_modules/.bin/next lint"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
